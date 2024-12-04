@@ -59,5 +59,5 @@ jobs:
           script: |
             docker stop html-container || true
             docker rm html-container || true
-            docker pull lssalas/html-project:latest
-            docker run -d --name html-container -p 80:80 lssalas/html-project:latest
+            docker pull jadem1203/hola-mundo-web:latest
+            docker run -d --name html-container -p 80:80 jadem1203/hola-mundo-web:latest
