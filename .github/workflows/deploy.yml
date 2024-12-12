@@ -2,10 +2,11 @@ name: CI/CD for Docker Image Deployment
 
 on:
   # Detecta cambios en archivos HTML para construir y subir la imagen
-  pull_request:
+  push:
     branches:
       - main
-   
+    paths:
+      - "**/*.html"
 
 jobs:
   # Trabajo 1: Actualizar la imagen Docker
@@ -31,7 +32,7 @@ jobs:
         with:
           context: .               # Usa el Dockerfile desde la raíz
           push: true               # Sube la imagen a Docker Hub
-          tags: jadem1203/hola-mundo-web:latest # Etiqueta como "latest"
+          tags: lssalas/html-project:latest # Etiqueta como "latest"
 
   # Trabajo 2: Desplegar la nueva imagen en la instancia EC2
   deploy:
